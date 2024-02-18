@@ -1,9 +1,0 @@
-<!-- layouts/_default/terms.html -->
-{{ define "main" }}
-<div class="container">
-    <h1>{{ .Title }}</h1>
-    {{ range .Data.Terms.Alphabetical }}
-        <div><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></div>
-    {{ end }}
-</div>
-{{ end }}
