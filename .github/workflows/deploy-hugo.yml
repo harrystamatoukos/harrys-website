@@ -1,4 +1,8 @@
 name: Deploy Hugo Site
+permissions:
+  contents: write
+  pages: write
+
 
 on:
   push:
