@@ -1,0 +1,196 @@
+:root {
+  /* Color palette */
+  --primary-color: #333;
+  --secondary-color: #0056b3;
+  --background-color: #fff;
+  --text-color: #333;
+  --link-color: #333;
+  --link-hover-color: #007bff;
+  --timeline-color: #e7e1e1; /* Timeline vertical line color */
+  --timeline-bullet-bg: #e7e1e1; /* Bullet background color */
+  --divider-gradient-start: rgba(128, 128, 128, 0);
+  --divider-gradient-end: rgba(128, 128, 128, 0.8);
+  
+  /* Typography */
+  --font-family-default: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --base-font-size: 1rem; /* Use rem for scalability */
+  --line-height: 1.6;
+
+  /* Spacing and Layout */
+  --base-spacing: 0.5rem; /* Use rem for consistency */
+  --timeline-line-offset: 4rem; /* Adjusted for alignment and spacing */
+  --timeline-item-padding: 0.625rem;
+  --bullet-size: 0.5rem;
+  --bullet-border-width: 0.25rem;
+  --year-width: 3.75rem;
+  --year-offset: 2rem; /* Adjust if needed for alignment */
+  --company-logo-size: 3.125rem; /* Logo size */
+  --company-logo-offset: 1.25rem; /* Space between logo and timeline, adjusted for clear space */
+  --timeline-width: 0.125rem;
+  --content-offset: 4.375rem; /* Added space for content offset from the vertical line */
+  --element-spacing: 1rem; /* New variable for spacing between elements */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-default);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: var(--base-font-size);
+  line-height: var(--line-height);
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--background-color);
+  z-index: 1000;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: calc(var(--base-spacing) * 2);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 60px; /* Adjust based on header height */
+}
+
+.profile-section {
+  text-align: center;
+  margin: auto;
+  padding: var(--base-spacing) 0;
+}
+
+.profile-image-container {
+  display: inline-block;
+}
+
+.profile-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-bottom: calc(var(--base-spacing) * 2.5);
+}
+
+.profile-info {
+  display: inline-block;
+  vertical-align: top;
+}
+
+h1, .tagline {
+  margin: 0;
+  padding: calc(var(--base-spacing) * 1.5);
+}
+
+.tagline {
+  font-style: italic;
+  color: #666;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-top: calc(var(--base-spacing) * 2);
+}
+
+.social-links a {
+  color: var(--link-color);
+  margin: 0 calc(var(--base-spacing) * 1.25);
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--link-hover-color);
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to left, var(--divider-gradient-start), var(--divider-gradient-end), var(--divider-gradient-start));
+  margin: calc(var(--base-spacing) * 5) 0;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: var(--timeline-line-offset);
+  top: 0;
+  bottom: 0;
+  width: var(--timeline-width);
+  background-color: var(--timeline-color);
+}
+
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--base-spacing) * 4;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: var(--bullet-size);
+  height: var(--bullet-size);
+  background-color: var(--timeline-bullet-bg);
+  border: var(--bullet-border-width) solid var(--timeline-bullet-bg);
+  border-radius: 50%;
+  z-index: 1;
+  left: var(--timeline-line-offset);
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.year {
+  position: absolute;
+  left: calc(var(--timeline-line-offset) - var(--year-width) - var(--year-offset));
+  top: 0;
+  z-index: 2;
+}
+
+.company-logo {
+  position: absolute;
+  left: calc(var(--timeline-line-offset) + var(--timeline-width) + var(--company-logo-offset));
+  top: 0;
+  width: var(--company-logo-size);
+  height: var(--company-logo-size);
+  z-index: 3;
+}
+
+.timeline-content {
+  background-color: var(--background-color);
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 0;
+  margin-left: calc(var(--timeline-line-offset) + var(--company-logo-size) + var(--company-logo-offset) * 2 + var(--element-spacing));
+  top: 0;
+}
+
+@media (max-width: 767px) {
+  header, .container, .profile-section, .timeline {
+    padding: calc(var(--base-spacing) * 2);
+  }
+
+  .timeline::before {
+    left: calc(var(--base-spacing) * 3);
+  }
+
+  .year, .company-logo, .timeline-item::after {
+    left: calc(var(--base-spacing) * 2); /* Align elements to the modified timeline position */
+  }
+
+  .timeline-content {
+    margin-left: calc(var(--base-spacing) * 4); /* Adjust for the mobile layout */
+  }
+}

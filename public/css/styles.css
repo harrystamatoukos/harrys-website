@@ -1,0 +1,179 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  header {
+    position: fixed;
+    width: 100%;
+    background-color: #FFF; /* Or any color that fits your design */
+    z-index: 1000;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  }
+  
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 60px; /* Adjust based on header height */
+  }
+  
+  .profile-section {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .profile-image-container {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  
+  .profile-image {
+    width: 250px; /* Adjusted image size to 250px */
+    height: 250px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .profile-info {
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  h1, .tagline {
+    margin: 0;
+  }
+  
+  .tagline {
+    font-style: italic;
+    color: #666;
+  }
+  
+  .social-links {
+    margin-top: 10px;
+  }
+  
+  .social-links a {
+    color: #333;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s;
+  }
+  
+  .social-links a:hover {
+    color: #007bff;
+  }
+  
+  .divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to left, rgba(128, 128, 128, 0), rgba(128, 128, 128, 0.8), rgba(128, 128, 128, 0));
+    margin: 40px 0;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #808080; /* Timeline line color */
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-left: 60px; /* Space for the year and bullet point */
+    padding-left: 20px; /* Additional padding for text alignment */
+  }
+  
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -34px; /* Position for bullet points */
+    top: 15px;
+    height: 10px;
+    width: 10px;
+    background-color: #808080; /* Bullet point color */
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .year {
+    position: absolute;
+    left: -140px; /* Adjusted position */
+    top: 10px;
+    color: #808080; /* Year color */
+    background-color: #fff; /* Background to cover the line */
+    padding: 0 5px;
+    z-index: 2; /* Ensure year is above the timeline */
+  }
+  
+  .company-logo {
+    position: absolute;
+    left: 0px; /* Adjusted position */
+    top: 5px;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    z-index: 2; /* Ensure logo is above the timeline */
+  }
+  
+  .timeline-content {
+    background-color: #fff;
+    left: 20px; /* Adjusted position */
+    top: -40px;
+    border-radius: 0px;
+    padding: 20px;
+    position: relative;
+    z-index: 0; /* Ensure content is behind the bullet points */
+  }
+  
+  @media (max-width: 767px) {
+    .profile-section, .timeline {
+        max-width: 100%;
+    }
+  
+    .timeline::before {
+        left: 50%;
+        transform: translateX(-1px);
+    }
+  
+    .timeline-item {
+        margin-left: 50%; /* Adjust the margin for mobile */
+        padding-left: 20px;
+    }
+  
+    .timeline-item::before, .year, .company-logo {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+  
+    .timeline-item .year, .timeline-item .company-logo {
+        top: -20px; /* Adjust top position for mobile */
+    }
+  
+    .timeline-content {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 40px; /* Adjust margin to accommodate year and logo */
+    }
+  }
+  
+  :root {
+      --primary-color: #333;
+      --secondary-color: #0056b3;
+      --background-color: #fff;
+  }
+  
